@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+            //Check answer multiple question
+            function multiCheck(button){
+                var answer = button.id;
+                switch (answer) {
+                    case '1':
+                        document.getElementById("1").innerHTML = "Incorrect";
+                        document.getElementById("1").style.backgroundColor = "red";
+                        break;
+                    case '2':
+                        document.getElementById("2").innerHTML = "Incorrect!";
+                        document.getElementById("2").style.backgroundColor = "red";
+                        break;
+                    case '3':
+                        document.getElementById("3").innerHTML = "Correct!";
+                        document.getElementById("3").style.backgroundColor = "green";
+                        break;
+                    case '4':
+                        document.getElementById("4").innerHTML = "Incorrect!";
+                        document.getElementById("4").style.backgroundColor = "red";
+                        break;
+                    default:
+                        return false;
+                }
+            }
+
+            //Reset response question
+            function resetFunction() {
+                document.getElementById('field').value = "";
+                document.getElementById('field').style.color = 'black';
+            }
+            //Check answer response quetsion
+            function checkFunction() {
+                var answer = document.getElementById("field");
+                if(answer.value == "RUSSIA" || answer.value == "Russia" || answer.value == 'russia')
+                {
+                    document.getElementById('field').value = "Correct";
+                    document.getElementById('field').style.color = 'green';
+
+                }
+                else
+                {
+                    document.getElementById('field').value = "Incorrect";
+                    document.getElementById('field').style.color = 'red';
+
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Who is served as the 46th President of the United States?</h3>
+                <button type="button" id="1" onclick="multiCheck(this)">Barack Obama</button>
+                <button type="button" id="2" onclick="multiCheck(this)">George W. Bush</button>
+                <button type="button" id="3" onclick="multiCheck(this)">Joe Biden</button>
+                <button type="button" id="4" onclick="multiCheck(this)">Donald Trump</button>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the largest country in the world?</h3>
+                <input type="text" id="field" value="" onfocus="resetFunction()">
+                <button onclick="checkFunction()">Check Answer</button>
+            </div>
+
+        </div>
+    </body>
+</html>
